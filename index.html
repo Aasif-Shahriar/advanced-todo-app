@@ -14,29 +14,31 @@
     <div class="main-container">
       <!-- sidebar -->
       <aside class="sidebar">
-        <!-- sidebar header -->
-        <div class="sidebar-header">
-          <div class="logo">
-            <i class="fa-regular fa-circle-check"></i>
+        <div class="logo-nav-spacing">
+          <!-- sidebar header -->
+          <div class="sidebar-header">
+            <div class="logo">
+              <i class="fa-regular fa-circle-check"></i>
+            </div>
+            <div>
+              <h2 class="project-title">YourTask</h2>
+              <p>Stay organized</p>
+            </div>
           </div>
-          <div>
-            <h2 class="project-title">YourTask</h2>
-            <p>Stay organized</p>
-          </div>
-        </div>
 
-        <!-- sidebar menu -->
-        <nav class="fitlers">
-          <button class="fitler-active" data-filter="all">
-            All Task <span class="count">5</span>
-          </button>
-          <button class="fitler" data-filter="active">
-            Active <span class="count">3</span>
-          </button>
-          <button class="fitler" data-filter="completed">
-            Completed <span class="count">2</span>
-          </button>
-        </nav>
+          <!-- sidebar menu -->
+          <nav class="filters">
+            <button class="filter-active" data-filter="all">
+              All Task <span class="count">5</span>
+            </button>
+            <button class="filter" data-filter="active">
+              Active <span class="count">3</span>
+            </button>
+            <button class="filter" data-filter="completed">
+              Completed <span class="count">2</span>
+            </button>
+          </nav>
+        </div>
         <!-- theme-toggle -->
         <div class="theme-toggle">
           <span>Dark Mode</span>
@@ -45,17 +47,20 @@
       </aside>
       <!-- main content -->
       <main class="main-content">
-        <header>
-          <h1>All Task</h1>
-          <button>+ Add Task</button>
+        <header class="main-header">
+          <h1>All Tasks</h1>
+          <button id="add-task">
+            <span class="plus-icon"><i class="fa-solid fa-plus"></i></span> Add
+            Task
+          </button>
         </header>
         <!-- task list -->
         <ul>
-
+          <li>Review design mockups</li>
         </ul>
       </main>
     </div>
     <!-- javascript -->
-     <script src="script.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>
