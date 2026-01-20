@@ -54,7 +54,7 @@ nav.filters button {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  padding: 10px 12px;
+  padding: 10px 14px;
   border: none;
   background: none;
   outline: none;
@@ -62,6 +62,7 @@ nav.filters button {
   border-radius: 8px;
   background: #f0f0f0;
   margin: 8px 0;
+  font-size: 16px;
   font-weight: 500;
   transition: all 0.3s ease;
 }
@@ -71,6 +72,9 @@ nav.filters button:hover {
 nav.filters .filter-active {
   background: #1bc47d;
   color: white;
+}
+.fa-circle {
+  margin-right: 8px;
 }
 .theme-toggle {
   display: flex;
@@ -110,11 +114,57 @@ nav.filters .filter-active {
   outline: none;
   transition: all 0.3s ease;
 }
-.plus-icon{
-    margin-right: 4px;
-    font-weight: 400;
+.plus-icon {
+  margin-right: 4px;
+  font-weight: 400;
 }
 #add-task:hover {
   background: #16a65a;
   transform: scale(1.05);
+}
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+ul li {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #e0e0e0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+ul li.completed {
+  opacity: 0.6;
+  text-decoration: line-through;
+}
+
+/* dark mode styles */
+.dark-mode {
+  background: #121212;
+  color: #ffffff;
+}
+.dark-mode .sidebar {
+  background: #1e1e1e;
+}
+.dark-mode .sidebar-header h2,
+.dark-mode .sidebar-header p {
+  color: #ffffff;
+}
+.dark-mode nav.filters button {
+  background: #2d2d2d;
+  color: #ffffff;
+}
+.dark-mode nav.filters .filter-active {
+  background: #1bc47d;
+  color: white;
+}
+.dark-mode ul li {
+  background: #2d2d2d;
+  border-color: #404040;
 }
