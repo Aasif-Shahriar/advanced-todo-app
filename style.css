@@ -172,6 +172,9 @@ nav.filters .filter-active {
 .add-task-actions {
   border-top: 1px solid rgb(220, 220, 220);
   padding: 12px 0;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 12px;
 }
 #confirm-task {
   width: 100%;
@@ -182,6 +185,7 @@ nav.filters .filter-active {
   border-radius: 10px;
   font-size: 16px;
   cursor: pointer;
+  grid-area: span 1 / span 11;
 }
 
 #confirm-task:disabled {
