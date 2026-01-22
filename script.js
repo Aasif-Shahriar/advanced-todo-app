@@ -1,5 +1,5 @@
 // DOM ELEMENTS
-const taskList = document.querySelector("ul");
+const taskList = document.querySelector(".task-list");
 const addTaskBtn = document.getElementById("add-task");
 const addTaskPanel = document.querySelector(".add-task-panel");
 const taskInput = document.getElementById("task-input");
@@ -13,8 +13,9 @@ let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 let currentFilter = "all";
 
 // INIT
-renderTask();
+renderTasks();
 updateCounts();
+restoreDarkMode();
 
 // ADD TASK PANEL LOGIC
 addTaskBtn.addEventListener("click", () => {
@@ -78,7 +79,7 @@ filterButtons.forEach((btn) => {
     document.querySelector(".filter-active")?.classList.remove("filter-active");
     btn.classList.add("filter-active");
     currentFilter = btn.dataset.filter;
-    renderTask();
+    renderTasks();
   });
 });
 
@@ -100,7 +101,7 @@ function restoreDarkMode() {
 }
 
 // CORE FUNCTION
-function renderTask() {
+function renderTasks() {
   taskList.innerHTML = "";
 
   let filtered = tasks;
@@ -117,7 +118,7 @@ function renderTask() {
 
     li.innerHTML = `
     <div class='task-left'>
-    <i class="fa-regular ${task.completed ? "fa-circle-check" : "fa-check"}"></i>
+   <i class="fa-regular ${task.completed ? "fa-circle-check" : "fa-circle"}"></i>
     <span>${task.text}</span>
     </div>
     <div class="task-actions">
@@ -130,11 +131,12 @@ function renderTask() {
 }
 
 function toggleTask(id) {
-  tasks = tasks.map((t) => {
-    t.id === id ? { ...t, completed: !t.completed } : t;
-  });
+  tasks = tasks.map((t) =>
+    t.id === id ? { ...t, completed: !t.completed } : t,
+  );
   saveAndRender();
 }
+
 function deleteTask(id) {
   tasks = tasks.filter((t) => t.id !== id);
   saveAndRender();
@@ -142,23 +144,27 @@ function deleteTask(id) {
 
 function saveAndRender() {
   localStorage.setItem("tasks", JSON.stringify(tasks));
-  renderTask();
+  renderTasks();
+  updateCounts();
 }
+
 function renameTask(id) {
   const task = tasks.find((t) => t.id === id);
   const newText = prompt("Rename task", task.text);
 
-  if (!newText || newText.trim() === "") {
-    task.text = newText.trim();
-    saveAndRender();
-  }
+  if (!newText || newText.trim() === "") return;
+
+  task.text = newText.trim();
+  saveAndRender();
 }
 
 function updateCounts() {
   document.querySelector('[data-filter="all"] .count').textContent =
     tasks.length;
+
   document.querySelector('[data-filter="active"] .count').textContent =
-    tasks.length;
+    tasks.filter((t) => !t.completed).length;
+
   document.querySelector('[data-filter="completed"] .count').textContent =
-    tasks.length;
+    tasks.filter((t) => t.completed).length;
 }
