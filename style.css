@@ -122,6 +122,50 @@ nav.filters .filter-active {
   background: #16a65a;
   transform: scale(1.05);
 }
+.add-task-panel{
+  border: 2px solid #8fffc3;
+  padding: 16px;
+  border-radius: 10px;
+  background: white;
+}
+#task-input{
+  width: 100%;
+  border: none;
+  outline: none;
+  /* padding: 10px; */
+  /* border-bottom: 1px solid rgb(207, 207, 207); */
+  margin-bottom: 12px;
+  font-size: 18px;
+}
+#task-input::placeholder{
+  color: rgb(190, 190, 190);
+}
+.add-task-actions{
+  border-top: 1px solid rgb(220, 220, 220);
+  padding: 12px 0;
+}
+#confirm-task{
+  width: 90%;
+  border: none;
+  outline: none;
+  background: #1bc47d;
+  padding: 12px 0;
+  border-radius: 10px;
+  font-weight:600;
+  font-size: 18px;
+  cursor: pointer;
+  color: white;
+}
+#cancel-task{
+  border: none;
+  outline: none;
+  background: #ebebeb;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-weight:600;
+  font-size: 18px;
+  cursor: pointer;
+}
 ul {
   list-style: none;
   display: flex;
@@ -167,4 +211,9 @@ ul li.completed {
 .dark-mode ul li {
   background: #2d2d2d;
   border-color: #404040;
+}
+
+/* utility class */
+.hidden {
+  display: none;
 }

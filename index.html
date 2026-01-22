@@ -42,7 +42,11 @@
             </button>
             <button class="filter" data-filter="completed">
               <span class="circle-icon"
-                ><i class="fa-regular fa-circle-check" style="margin-right: 4px;"></i>Completed</span
+                ><i
+                  class="fa-regular fa-circle-check"
+                  style="margin-right: 4px"
+                ></i
+                >Completed</span
               >
               <span class="count">2</span>
             </button>
@@ -63,6 +67,19 @@
             Task
           </button>
         </header>
+        <!-- Add Task Panel -->
+        <div class="add-task-panel hidden">
+          <input
+            type="text"
+            id="task-input"
+            placeholder="What needs to be done?"
+          />
+
+          <div class="add-task-actions">
+            <button id="confirm-task" disabled>Add Task</button>
+            <button id="cancel-task">Cancel</button>
+          </div>
+        </div>
         <!-- task list -->
         <ul>
           <li><i class="fa-regular fa-circle"></i> Review design mockups</li>
